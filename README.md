@@ -34,5 +34,10 @@ uvicorn app.main:app --reload
 Emails are sent asynchronously using FastAPI BackgroundTasks.
 
 ## 👨‍💻 Author
+<<<<<<< HEAD
 Job Board Backend API    
   
+=======
+Job Board Backend API
+  
+>>>>>>> eb77356 (readme commit)
