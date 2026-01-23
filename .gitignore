@@ -7,6 +7,10 @@ __pycache__/
 *.pyd
 *.so
 
+# Environment variables
+.env
+.env*
+
 # ----------------------------------
 # Virtual Environments
 # ----------------------------------
