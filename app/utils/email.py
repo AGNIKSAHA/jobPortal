@@ -18,18 +18,14 @@ def send_email(
     - Raises clear errors if config is missing
     """
 
-    # -------------------------------------------------
     # Skip sending emails if disabled (local/dev)
-    # -------------------------------------------------
     if not settings.EMAIL_ENABLED:
         print(
             f"[EMAIL DISABLED] To={to_email} | Subject={subject}"
         )
         return
 
-    # -------------------------------------------------
     # Validate required email configuration
-    # -------------------------------------------------
     if settings.EMAIL_HOST is None:
         raise RuntimeError("EMAIL_HOST is not configured")
 
@@ -42,9 +38,7 @@ def send_email(
     if settings.EMAIL_FROM is None:
         raise RuntimeError("EMAIL_FROM is not configured")
 
-    # -------------------------------------------------
     # Build email message
-    # -------------------------------------------------
     msg = MIMEMultipart()
     msg["From"] = settings.EMAIL_FROM
     msg["To"] = to_email
@@ -52,9 +46,8 @@ def send_email(
 
     msg.attach(MIMEText(html_body, "html"))
 
-    # -------------------------------------------------
+
     # Send email via SMTP
-    # -------------------------------------------------
     try:
         with smtplib.SMTP(settings.EMAIL_HOST, settings.EMAIL_PORT) as server:
             server.starttls()

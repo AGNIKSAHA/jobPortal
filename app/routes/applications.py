@@ -14,7 +14,7 @@ from app.services.application_service import (
 )
 
 from app.models.application_read import ApplicationWithCandidate, ApplicationWithJob
-from app.utils.application_query import get_applications_by_job, get_applications_by_candidate
+from app.services.application_query import get_applications_by_job, get_applications_by_candidate
 from app.services.email_service import send_application_emails
 
 router = APIRouter()

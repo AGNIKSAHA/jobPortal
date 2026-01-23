@@ -9,34 +9,6 @@ from app.schemas.application import (
     ApplicationStatus
 )
 from app.services.email_service import send_application_emails
-# ---------------------------------------------------
-# Apply for a job
-# ---------------------------------------------------
-# def apply_job(payload: ApplicationCreate, session: Session) -> Application:
-#     job = session.get(Job, payload.job_id)
-#     if not job or job.status != JobStatus.PUBLISHED:
-#         raise HTTPException(410, "Job is not available")
-
-#     existing = session.exec(
-#         select(Application).where(
-#             Application.job_id == payload.job_id,
-#             Application.candidate_id == payload.candidate_id,
-#         )
-#     ).first()
-
-#     if existing:
-#         raise HTTPException(409, "Already applied to this job")
-
-#     # ✅ Let model default handle status
-#     application = Application(**payload.model_dump())
-
-#     session.add(application)
-#     session.commit()
-#     session.refresh(application)
-
-#     send_application_emails(application, session)
-
-#     return application
 
 
 def apply_job(payload: ApplicationCreate, session: Session) -> Application:
@@ -64,9 +36,7 @@ def apply_job(payload: ApplicationCreate, session: Session) -> Application:
 
 
 
-# ---------------------------------------------------
-# Update application status
-# ---------------------------------------------------
+
 def update_application_status(
     application_id: int,
     payload: ApplicationStatusUpdate,

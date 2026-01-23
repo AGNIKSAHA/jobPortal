@@ -4,9 +4,8 @@ from datetime import datetime
 from enum import Enum
 
 
-# ---------------------------------------------------
+
 # Job type enum
-# ---------------------------------------------------
 class JobType(str, Enum):
     FULL_TIME = "FULL_TIME"
     PART_TIME = "PART_TIME"
@@ -15,18 +14,15 @@ class JobType(str, Enum):
     FREELANCE = "FREELANCE"
 
 
-# ---------------------------------------------------
+
 # Job status enum
-# ---------------------------------------------------
 class JobStatus(str, Enum):
     DRAFT = "DRAFT"
     PUBLISHED = "PUBLISHED"
     CLOSED = "CLOSED"
 
 
-# ---------------------------------------------------
 # Base schema
-# ---------------------------------------------------
 class JobBase(SQLModel):
     employer_id: int                  # Job owner
     title: str                        # Job title
@@ -38,16 +34,14 @@ class JobBase(SQLModel):
     salary_min: Optional[int] = None
     salary_max: Optional[int] = None
 
-# ---------------------------------------------------
+
 # Create schema
-# ---------------------------------------------------
 class JobCreate(JobBase):
     status: JobStatus = JobStatus.PUBLISHED
 
 
-# ---------------------------------------------------
+
 # Update schema
-# ---------------------------------------------------
 class JobUpdate(SQLModel):
     title: Optional[str] = None
     description: Optional[str] = None
@@ -60,9 +54,7 @@ class JobUpdate(SQLModel):
     status: Optional[JobStatus] = None
 
 
-# ---------------------------------------------------
 # Read schema
-# ---------------------------------------------------
 class JobRead(JobBase):
     id: int
     status: JobStatus

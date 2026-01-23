@@ -7,7 +7,7 @@ from app.core.deps import get_session
 from app.models.job import Job, JobType, JobStatus
 from app.schemas.job import JobCreate, JobRead, JobUpdate
 from app.services.job_service import create_job, get_job, update_job, delete_job
-from app.utils.job_query import build_job_query
+from app.services.job_query import build_job_query
 from app.utils.pagination import apply_pagination
 from app.services.email_service import notify_candidates_new_job
 router = APIRouter()

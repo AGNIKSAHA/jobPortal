@@ -6,15 +6,11 @@ load_dotenv()
 
 
 class Settings:
-    # ---------------------------------------------------
     # Application settings
-    # ---------------------------------------------------
     APP_NAME: str = os.getenv("APP_NAME", "Job Board API")
     ENVIRONMENT: str = os.getenv("ENVIRONMENT", "development")
 
-    # ---------------------------------------------------
     # Email / SMTP settings
-    # ---------------------------------------------------
     EMAIL_HOST: str | None = os.getenv("EMAIL_HOST")
     EMAIL_PORT: int = int(os.getenv("EMAIL_PORT", "587"))
     EMAIL_USERNAME: str | None = os.getenv("EMAIL_USERNAME")

@@ -16,53 +16,6 @@ from app.utils.email_templetes import (
     new_job_posted
 )
 
-# def send_application_emails(
-#     application: Application,
-#     session: Session,
-# ) -> None:
-#     """
-#     Send all emails related to a job application:
-#     1. Confirmation email to candidate
-#     2. Notification email to employer
-#     """
-
-#     # -------------------------------------------------
-#     # Fetch related entities (single responsibility)
-#     # -------------------------------------------------
-#     candidate = session.get(Candidate, application.candidate_id)
-#     job = session.get(Job, application.job_id)
-
-#     if candidate is None or job is None:
-#         # Data integrity issue; do not attempt emails
-#         return
-
-#     employer = session.get(Employer, job.employer_id)
-#     if employer is None:
-#         return
-
-#     # -------------------------------------------------
-#     # Email to Candidate (Confirmation)
-#     # -------------------------------------------------
-#     send_email(
-#         to_email=candidate.email,
-#         subject="Application Submitted Successfully",
-#         html_body=application_confirmation(
-#             candidate_name=candidate.name,
-#             job_title=job.title,
-#         ),
-#     )
-
-#     # -------------------------------------------------
-#     # Email to Employer (New Application Notification)
-#     # -------------------------------------------------
-#     send_email(
-#         to_email=employer.contact_email,
-#         subject="New Candidate Applied for Your Job",
-#         html_body=employer_notification(
-#             employer_name=employer.company_name,
-#             job_title=job.title,
-#         ),
-#     )
 
 
 def send_application_emails(

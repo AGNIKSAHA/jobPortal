@@ -2,9 +2,8 @@ from sqlmodel import Session
 from fastapi import HTTPException
 
 from app.models.resume import Resume
-# ---------------------------------------------------
+
 # Save resume metadata after upload
-# ---------------------------------------------------
 def create_resume(
     candidate_id: int,
     file_url: str,
@@ -21,9 +20,8 @@ def create_resume(
     session.commit()
     session.refresh(resume)
     return resume
-# ---------------------------------------------------
+
 # Get resume by ID
-# ---------------------------------------------------
 def get_resume(resume_id: int, session: Session) -> Resume:
     resume = session.get(Resume, resume_id)
     if not resume:

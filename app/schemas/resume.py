@@ -2,17 +2,15 @@ from sqlmodel import SQLModel
 from datetime import datetime
 
 
-# ---------------------------------------------------
+
 # Upload schema
 # Used in: POST /resumes/upload
-# ---------------------------------------------------
 class ResumeCreate(SQLModel):
     candidate_id: int                 # Owner of resume
 
 
-# ---------------------------------------------------
+
 # Read schema
-# ---------------------------------------------------
 class ResumeRead(SQLModel):
     id: int
     candidate_id: int

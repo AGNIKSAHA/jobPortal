@@ -3,9 +3,7 @@ from typing import Optional
 from datetime import datetime
 
 
-# ---------------------------------------------------
 # Base schema
-# ---------------------------------------------------
 class EmployerBase(SQLModel):
     company_name: str                 # Company name
     industry: str                     # Industry type
@@ -14,16 +12,13 @@ class EmployerBase(SQLModel):
 
 
 
-# ---------------------------------------------------
+
 # Create schema
-# ---------------------------------------------------
 class EmployerCreate(EmployerBase):
     pass
 
 
-# ---------------------------------------------------
 # Update schema
-# ---------------------------------------------------
 class EmployerUpdate(SQLModel):
     company_name: Optional[str] = None
     industry: Optional[str] = None
@@ -31,9 +26,7 @@ class EmployerUpdate(SQLModel):
     location: Optional[str] = None
 
 
-# ---------------------------------------------------
 # Read schema
-# ---------------------------------------------------
 class EmployerRead(EmployerBase):
     id: int
     created_at: datetime
